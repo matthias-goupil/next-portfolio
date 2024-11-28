@@ -8,9 +8,6 @@ export default async function Home() {
   return (
     <div>
       <p className="font-poppins">{t("hello")}</p>
-      <Suspense>
-        <LanguageSwitcher />
-      </Suspense>
     </div>
   );
 }

@@ -8,12 +8,15 @@ function LanguageSwitcher() {
 
   return (
     <div
-      className="cursor-pointer font-poppins"
+      className="cursor-pointer font-poppins flex gap-2"
       onClick={() => {
         changeLocale(locale === "fr" ? "en" : "fr");
       }}
     >
-      <span className="uppercase">{locale}</span>
+      <span className="uppercase">{locale === 'en'? "en" : "fr"}</span>
+      |
+      <span className="uppercase text-gray-300">{locale === 'en'? "fr" : "en"}</span>
+
     </div>
   );
 }

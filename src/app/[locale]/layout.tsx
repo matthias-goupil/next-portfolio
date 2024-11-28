@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import poppinsFont from "../fonts/Poppins";
-import { Providers } from "./providers";
+import { Providers } from "../../Providers/Providers";
+import { Suspense } from "react";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,10 +21,24 @@ export default function RootLayout({
   };
 }>) {
   const { locale } = params;
+
   return (
     <html lang={locale}>
-      <body className={`${poppinsFont.variable} antialiased`}>
-        <Providers locale={locale}>{children}</Providers>
+      <body
+        className={`${poppinsFont.variable} antialiased font-poppins px-10 bg-white dark:bg-slate-800 text-slate-800 dark:text-white transition-colors`}
+      >
+        <Providers locale={locale}>
+          <header className="flex flex-row justify-between items-center w-full py-4 ">
+            <p>Matthias GOUPIL</p>
+            <div className="flex gap-2">
+              <ThemeSwitcher />
+              <Suspense>
+                <LanguageSwitcher />
+              </Suspense>
+            </div>
+          </header>
+          {children}
+        </Providers>
       </body>
     </html>
   );
