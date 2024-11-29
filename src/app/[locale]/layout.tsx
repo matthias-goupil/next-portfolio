@@ -5,6 +5,15 @@ import { Providers } from "../../Providers/Providers";
 import { Suspense } from "react";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
+import Menu from "@/components/Menu";
+import {
+  FolderGit2,
+  Home,
+  MessageSquareText,
+  PencilRuler,
+  SquareCode,
+  User,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,20 +32,54 @@ export default function RootLayout({
   const { locale } = params;
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className="scroll-smooth">
       <body
         className={`${poppinsFont.variable} antialiased font-poppins px-10 bg-white dark:bg-slate-800 text-slate-800 dark:text-white transition-colors`}
       >
         <Providers locale={locale}>
-          <header className="flex flex-row justify-between items-center w-full py-4 ">
+          <header className="flex flex-row justify-between items-center w-full h-24">
             <p>Matthias GOUPIL</p>
-            <div className="flex gap-2">
+            <div className="flex gap-8">
               <ThemeSwitcher />
               <Suspense>
                 <LanguageSwitcher />
               </Suspense>
             </div>
           </header>
+          <Menu
+            links={[
+              {
+                label: "menu.home",
+                icon: <Home />,
+                href: "/#home",
+                id: "home",
+              },
+              {
+                label: "menu.about-me",
+                icon: <User />,
+                href: "/#about-me",
+                id: "about-me",
+              },
+              {
+                label: "menu.skills",
+                icon: <PencilRuler />,
+                href: "/#skills",
+                id: "skills",
+              },
+              {
+                label: "menu.projects",
+                icon: <FolderGit2 />,
+                href: "/#projects",
+                id: "projects"
+              },
+              {
+                label: "menu.contact",
+                icon: <MessageSquareText />,
+                href: "/#contact-me",
+                id: "contact-me"
+              },
+            ]}
+          />
           {children}
         </Providers>
       </body>

@@ -13,7 +13,7 @@ export default function ThemeSwitche() {
 
   return (
     <div className="cursor-pointer" onClick={toggleTheme}>
-        {theme === "light" ? <Sun /> : <Moon />}
+      {theme === "light" ? <Sun /> : <Moon />}
     </div>
   );
 }

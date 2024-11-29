@@ -8,6 +8,11 @@ export default async function Home() {
   return (
     <div>
       <p className="font-poppins">{t("hello")}</p>
+      <div id="home" className="h-[120vh] py-10 border-b-2 w-full"></div>
+      <div id="about-me" className="h-[120vh] py-10  border-b-2 w-full"></div>
+      <div id="skills" className="h-[120vh] py-10  border-b-2 w-full"></div>
+      <div id="projects" className="h-[120vh] py-10  border-b-2 w-full"></div>
+      <div id="contact-me" className="h-[120vh] py-10  border-b-2 w-full"></div>
     </div>
   );
 }
